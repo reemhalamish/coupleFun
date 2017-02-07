@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="1dp"
+    >
+    <ImageView
+        android:id="@+id/iv_main_btn_bg"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/bg_circle_white"
+        android:tint="@color/grey_bg"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="8dp"
+        />
+
+    <ImageView
+        android:id="@+id/iv_main_btn_icon"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignStart="@+id/iv_main_btn_bg"
+        android:layout_alignEnd="@+id/iv_main_btn_bg"
+        android:layout_alignTop="@+id/iv_main_btn_bg"
+        android:layout_alignBottom="@+id/iv_main_btn_bg"
+        android:padding="16dp"
+        android:src="@android:drawable/btn_star"
+        android:scaleType="fitXY"
+        />
+
+    <halamish.reem.couplefun.views.fonts.TextViewOpenSans
+        android:id="@+id/tv_main_btn_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:textColor="@android:color/black"
+        android:text="use app:title"
+        android:layout_toEndOf="@+id/iv_main_btn_bg"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+
+        />
+
+    <halamish.reem.couplefun.views.fonts.TextViewOpenSans
+        android:id="@+id/tv_main_btn_subtitle"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="use app:subtitle"
+        android:textColor="@color/secondary_text"
+
+        android:layout_below="@+id/tv_main_btn_title"
+        android:layout_alignBottom="@+id/iv_main_btn_bg"
+        android:layout_alignStart="@+id/tv_main_btn_title"
+
+        android:gravity="start"
+
+        android:textSize="14sp"
+        />
+
+
+</RelativeLayout>

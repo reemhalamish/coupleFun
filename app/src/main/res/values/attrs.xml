@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <declare-styleable name="MainActivityButtonAttribute">
+        <attr name="main_icon" format="integer"/>
+        <attr name="use_grey_circle" format="boolean"/>
+        <attr name="title" format="string"/>
+        <attr name="subtitle" format="string"/>
+    </declare-styleable>
+</resources>
