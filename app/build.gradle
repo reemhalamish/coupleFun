@@ -35,7 +35,7 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.1.0'
+    compile 'com.android.support:appcompat-v7:25.1.1'
     testCompile 'junit:junit:4.12'
 
     provided "org.projectlombok:lombok:1.16.8"
@@ -48,7 +48,7 @@ dependencies {
 
 
 retrolambda {
- //   jdk "D:\\windows_programs\\Java\\jdk1.8.0_91"
-    jdk "/usr/lib/jvm/java-8-oracle"
+    jdk "D:\\windows_programs\\Java\\jdk1.8.0_91"
+//    jdk "/usr/lib/jvm/java-8-oracle"
     javaVersion JavaVersion.VERSION_1_7
 }

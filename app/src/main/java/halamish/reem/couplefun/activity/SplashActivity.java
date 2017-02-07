@@ -23,11 +23,11 @@ import java.util.Set;
 import halamish.reem.couplefun.LocalStore;
 import halamish.reem.couplefun.R;
 import halamish.reem.couplefun.locale.LocaleUtils;
+import halamish.reem.couplefun.views.HeartsFatherView;
 import halamish.reem.couplefun.views.PyramidView;
 import halamish.reem.couplefun.views.StarView;
 import halamish.reem.couplefun.views.animation.AnimationManager;
-import lombok.AllArgsConstructor;
-import lombok.ToString;
+import halamish.reem.couplefun.views.utils.IntPoint;
 
 public class SplashActivity extends Activity {
     private static final long SPLASH_TIME_MS = 500;
@@ -35,8 +35,6 @@ public class SplashActivity extends Activity {
     private static final float STAR_POS_Y_END_PRCTG = 0.3f;
     private static final float PYRAMID_POS_Y_START_PRCTG = STAR_POS_Y_END_PRCTG - 0.1f;
     private static final float PYRAMID_POS_Y_START_BIGGER_PRCTG = PYRAMID_POS_Y_START_PRCTG + 0.1f;
-//    private static final float STAR_RADIUS_LEAST_DP = 1f;
-//    private static final float STAR_RADIUS_MOST_DP = 10f;
     private static final String TAG = SplashActivity.class.getSimpleName();
     private static final long UPDATE_STARS_DELAY_MS = 100;
     private static final int STARS_AMOUNT = 100;
@@ -59,12 +57,10 @@ public class SplashActivity extends Activity {
 
     }
 
-    @AllArgsConstructor @ToString static class IntPoint {int x, y;}
-    @AllArgsConstructor @ToString static class FloatPoint {float x, y;}
-
 
     View btnHe, btnEn;
     RelativeLayout rlBg;
+    HeartsFatherView hfvHearts;
     Map<StarView, IntPoint> mViewPointMap;
     Set<PyramidView> mPyramidViewSet;
     boolean mActivityFinished;
@@ -115,6 +111,7 @@ public class SplashActivity extends Activity {
             createShineyLittleStars();
 //            createPyramids();
             bringButtonsToFront();
+            hfvHearts.startHearts();
         } else {
             for (StarView view: mViewPointMap.keySet())
                 rlBg.removeView(view);
@@ -293,6 +290,7 @@ public class SplashActivity extends Activity {
         btnHe = findViewById(R.id.tv_splash_he);
         btnEn = findViewById(R.id.tv_splash_en);
         rlBg = (RelativeLayout) findViewById(R.id.rl_splash_bg);
+        hfvHearts = (HeartsFatherView) findViewById(R.id.hfv_splash);
         mViewPointMap = new HashMap<>();
         mPyramidViewSet = new HashSet<>();
         mActivityFinished = false;
@@ -300,9 +298,15 @@ public class SplashActivity extends Activity {
 
     private Runnable startNextActivity() {
         return () -> {
-            mActivityFinished = true;
             startActivity(new Intent(SplashActivity.this, MainActivity.class));
             finish();
         };
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mActivityFinished = true;
+        hfvHearts.setShouldContinue(false);
     }
 }
